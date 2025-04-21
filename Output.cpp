@@ -19,3 +19,13 @@ void title()
   cout << "As we go along, please press enter to see each step!\n"; 
   cout << "To start please enter in the size of your array: ";
 }
+
+void decrease(int arr[], int elements)
+{
+
+}
+
+void conquer(int arr[], int elements)
+{
+  
+}

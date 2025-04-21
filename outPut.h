@@ -6,4 +6,6 @@
 using namespace std;
 
 void title();
+void decrease(int arr[], int elements);
+void conquer(int arr[], int elements);
 #endif
