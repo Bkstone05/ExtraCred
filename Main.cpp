@@ -18,7 +18,7 @@ int main()
     title(); 
     cin >> elements; 
     arr = new int[elements]; 
-    //I stopped here :)
+    
 
 }
 
