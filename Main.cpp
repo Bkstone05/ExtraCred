@@ -12,13 +12,24 @@ int RecursiveMax(int[], int);
 
 int main()
 {
-    int elements; 
+    int elements, max; 
     int* arr;
 
     title(); 
     cin >> elements; 
     arr = new int[elements]; 
-    
+    cout << "Please enter in your elements below" << endl; 
+    for(int i =0; i<elements;i++)
+    {
+        cout << "Element " << i << ": ";
+        cin >> arr[i];
+    }
+    decrease(arr, elements);
+    cout << "Ending the decrease phase!\n\n";
+    max= RecursiveMax(arr, elements);
+    cout << max;
+   // conquer(arr, elements);
+
 
 }
 
