@@ -27,8 +27,7 @@ int main()
     decrease(arr, elements);
     cout << "Ending the decrease phase!\n\n";
     max= RecursiveMax(arr, elements);
-    cout << max;
-   // conquer(arr, elements);
+    conquer(arr, elements);
 
 
 }

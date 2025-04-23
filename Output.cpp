@@ -56,9 +56,42 @@ void decrease(int arr[], int elements)
     cout << "Max is equal to " << arr[0] << endl;
     return;
 }
-/*
+
 void conquer(int arr[], int elements)
 {
+  int n=1, cont;
+  int max = arr[0];
+  cout << "We are now going to walk through the conquer phase!\n";
+  cout << "Same rules apply please enter 1 to continue to the next step!\n";
+  cout << "Are you ready to start: " << endl; 
+  cin >> cont; 
+  while(cont ==1 && n<elements)
+  {
+    cout << "\nS[";
+    for(int i=0; i<n; i++)
+    {
+      if(i != n-1)
+      {
+        cout << arr[i] << ","; 
+      }
+      else
+      {
+        cout << arr[i];
+      }
+    }
+    if(max<arr[n+1])
+    {
+      max = arr[n+1];
+      cout << "]";
+      cout << endl << "n = " << n;
+      cout << "The new max is " << max; 
+      cout << "Return this value\n"; 
+    }
+    
+
+
+
+    ++n;
+  }
   
 }
-*/
