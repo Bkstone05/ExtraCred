@@ -26,6 +26,7 @@ int main()
         cout << "Element " << i << ": ";
         cin >> arr[i];
     }
+    cout << "\nFrom now on when asked if you are ready to continue please enter 1 to proceed!";
     cout << "\nLets look at the decrease in a visual manner!";
     cout << "\nTake note of the array decreasing by one each time!";
     max= RecursiveMax(arr, elements);
@@ -48,47 +49,96 @@ int main()
 int RecursiveMax(int arr[], int elements)
 {
     int max = 0; 
+    int cont; 
 
-    cout << "\nS[";
-    for(int i=0; i<elements; i++)
+    cout << "\n\nAre you ready to continue?";
+    cin >> cont;
+    if(cont == 1)
     {
-      if(i != elements-1)
+      cout << "\nS[";
+      for(int i=0; i<elements; i++)
       {
-        cout << arr[i] << ","; 
+        if(i != elements-1)
+        {
+          cout << arr[i] << ","; 
+        }
+        else
+        {
+          cout << arr[i];
+        }
       }
-      else
+      cout << "]";
+      if(elements == 1)
       {
-        cout << arr[i];
+          cout << "\n\nn = 1"; 
+          cout << "\nThis means we return s[0] and start conquering!";
+          cout << "\ns[0] = " << arr[0] << endl; 
+          cout << "\nWe will now look at the conquer phase!";
+          cout << "\nAgain take note of the increase each time in the array!";
+          cout << "\n\nAre you ready to continue?";
+          cin >> cont;
+          if(cont == 1)
+          {
+            return arr[0];
+          }
       }
-    }
-    cout << "]";
-    if(elements == 1)
-    {
-        cout << "\n\nn = 1"; 
-        cout << "\nThis means we return s[0] and start conquering!";
-        cout << "\ns[0] = " << arr[0] << endl; 
-        cout << "\nWe will now look at the conquer phase!";
-        return arr[0];
-    }
-    else 
-    {
-        
-        max = RecursiveMax(arr, elements-1);
-        cout << "\nThe current max is " << max << endl;
+      else 
+      {
+          
+          max = RecursiveMax(arr, elements-1);
+          cout << "\nThe current max is " << max << endl;
 
-        if(max>arr[elements-1])
-        {
-            cout << "\nSince the max (" << max << ") is less than the element " << arr[elements-1] << endl;
-            cout << "We will be returning the max!";
-            return max;
-        }
-        else 
-        {
-            cout << "\nSince the max (" << max << ") is not less than the element " << arr[elements-1] << endl;
-            cout << "We will be returning the element!";
-            return arr[elements-1];
-        }
-    }
+          if(max>arr[elements-1])
+          {
+              cout << "\nSince the max (" << max << ") is less than the element " << arr[elements-1] << endl;
+              cout << "We will be returning the max!";
+              cout << "\nS[";
+              for(int i=0; i<elements; i++)
+              {
+                if(i != elements-1)
+                {
+                  cout << arr[i] << ","; 
+                }
+                else
+                {
+                  cout << arr[i];
+                }
+              }
+              cout << "]";
+              cout << "\n\nAre you ready to continue?";
+              cin >> cont;
+              if(cont ==1 )
+              {
+                return max;
+              }  
+          }
+          else 
+          {
+              cout << "\nSince the max (" << max << ") is not less than the element " << arr[elements-1] << endl;
+              cout << "We will be returning the element!";
+              cout << "\nS[";
+              for(int i=0; i<elements; i++)
+              {
+                if(i != elements-1)
+                {
+                  cout << arr[i] << ","; 
+                }
+                else
+                {
+                  cout << arr[i];
+                }
+              }
+              cout << "]";
+              cout << "\n\nAre you ready to continue?";
+              cin >> cont;
+              if(cont ==1 )
+              {
+                return arr[elements-1];
+              }
+          }
+      }
+    }  
+    return max;
 }
 
 void title()
