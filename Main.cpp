@@ -19,7 +19,8 @@ int main()
     char cont;
 
     title(); 
-    do
+
+    do //allows them to enter in array again if it is incorrect 
     {
       cout << "To start please enter in the size of your array: ";
     cin >> elements; 
@@ -31,6 +32,7 @@ int main()
         cin >> arr[i];
     }
   
+    //printing array
     cout << "\nYour array is S[";
     for(int i=0; i<elements; i++)
     {
@@ -44,9 +46,11 @@ int main()
       }
     }
     cout << "]";
+
     cout << "\nIf the array above is correct please enter in y for yes and n for no.\n" ; 
     cin >> cont;
     }while(cont != 'y' && cont != 'Y');
+
     cout << "\nFrom now on when asked if you are ready to continue please enter y for yes to proceed!";
     cout << "\n\nLets look at the decrease in a visual manner!" << endl;
     cout << "Take note of the array decreasing by one each time!" << endl;
@@ -57,7 +61,8 @@ int main()
       cout << "Please enter in y to continue "; 
       cin >> cont; 
     }
-    max= RecursiveMax(arr, elements);
+    max= RecursiveMax(arr, elements); //call algorithm 
+    //final output of the array and max
     cout << "\n\nThe final max of the array " ;
     cout << "\nS[";
     for(int i=0; i<elements; i++)
@@ -73,11 +78,19 @@ int main()
     }
     cout << "] is " << max;
 }
-//----------------------------------------------------------------------------------
+
+
+/*
+Title: recursiveMax
+Returns: int (Max of the array)
+Input: Array and number of elements
+Purpose: Find and return the max of an array 
+*/
 int RecursiveMax(int arr[], int elements)
 {
     int max = 0; 
     char cont; 
+    //prints array each time
       cout << "\nS[";
       for(int i=0; i<elements; i++)
       {
@@ -91,6 +104,7 @@ int RecursiveMax(int arr[], int elements)
         }
       }
       cout << "]";
+      // end of the decrease phase 
       if(elements == 1)
       {
           cout << "\n\nn = 1"; 
@@ -109,11 +123,11 @@ int RecursiveMax(int arr[], int elements)
       }
       else 
       {
-          
+          //recursive call
           max = RecursiveMax(arr, elements-1);
           cout << "\nThe current max is " << max << endl;
 
-          if(max>arr[elements-1])
+          if(max>arr[elements-1]) //if max needs to stay the same
           {
               cout << "\nSince the max (" << max << ") is not less than the element " << arr[elements-1] << endl;
               cout << "We will be returning the max!";
@@ -132,7 +146,7 @@ int RecursiveMax(int arr[], int elements)
               cout << "]";
                 return max;
           }
-          else 
+          else //max needs to be updated 
           {
               cout << "\nSince the max (" << max << ") is less than the element " << arr[elements-1] << endl;
               cout << "We will be returning the element!";
@@ -157,6 +171,7 @@ int RecursiveMax(int arr[], int elements)
     return max;
 }
 
+//prints out beginning output
 void title()
 { 
   cout<<"\n\n   ____                          _                                           " << endl ;
